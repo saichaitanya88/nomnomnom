@@ -56,7 +56,6 @@ nom3Controllers.controller('HomeCtrl', ['$scope', '$http', 'AppService', //, "Us
 					query = query + "&ingredients=" + ingredients[i]
 				}
 				var params = {query : query.substring(1), skip : $scope.skip }
-				AppService.GetRecipes(params, successFunction, errorFunction);
 				function successFunction(response, status){
 					if (response.data.length == 0){
 						$scope.skip == 0;
@@ -73,6 +72,7 @@ nom3Controllers.controller('HomeCtrl', ['$scope', '$http', 'AppService', //, "Us
 					else 
 						$scope.recipes = response.data;
 				}
+				AppService.GetRecipes(params, successFunction, errorFunction);
 			}
 		}
 		function Search(skip){
