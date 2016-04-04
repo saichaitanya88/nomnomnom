@@ -1,0 +1,74 @@
+<div class="container" style="margin-top:10px;">
+	<div class="row">
+		<div class="col s12">
+			<div class="right-align"><a class="btn amber darken-3" href="#/">Back</a></div>
+		</div>
+	</div>
+</div>
+<div class="z-depth-2 rounded container" style="margin-top:10px;">
+	<div class="card-panel rounded z-depth-0 grey lighten-1">
+		<div class="row valign-wrapper">
+			<div class="col s3">
+				<img ng-src="{{recipe.meta.img_src}}" ng-alt="{{recipe.title}}" class="responsive-img materialboxed"> <!-- notice the "circle" class -->
+			</div>
+			<div class="col s9">
+				<div class="row">
+					<div "col s12">
+						<h4>{{recipe.title}}</h4>
+						<i>{{recipe.meta.description}}</i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s11 offset-s1">
+				<span style="margin-right:10px;">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i> ({{recipe.ratings.stars_5}})
+				</span>
+				<span style="margin-right:10px;">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i> ({{recipe.ratings.stars_4}})
+				</span>
+				<span style="margin-right:10px;">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i> ({{recipe.ratings.stars_3}})
+				</span>
+				<span style="margin-right:10px;">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i> ({{recipe.ratings.stars_2}})
+				</span>
+				<span style="margin-right:10px;">
+					<i class="fa fa-star"></i> ({{recipe.ratings.stars_1}})
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<a href="" class="breadcrumb black-text" ng-repeat="category in recipe.categories">{{category}}</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<ul class="collection with-header">
+					<li class="collection-header grey lighten-2"><h5>Ingredients</h5></li>
+					<li class="collection-item grey lighten-2" ng-repeat="ingredient in recipe.ingredients_full">{{ingredient}}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<ul class="collection with-header">
+					<li class="collection-header grey lighten-2"><h5>Cooking Steps</h5></li>
+					<li class="collection-item grey lighten-2" ng-repeat="step in recipe.cooking_steps">{{step}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

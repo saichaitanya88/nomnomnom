@@ -1,0 +1,36 @@
+<form name="form">
+	<div class="row valign-wrapper" style="margin-top:10px;" ng-class="{'full-height' : !(recipes.length > 0)}">
+		<div class="col s8 offset-s2 grey lighten-2 z-depth-2 valign rounded-slightly" ng-class="{jumbotron : !(recipes.length > 0)}">
+			<div class="container">
+				<div class="row">
+					<h5 class="center-align">Select your ingredients</h5>
+				</div>
+				<div class="row">
+					<input class="white" name="tags" id="tags" ng-model="tags" type="text" data-role="materialtags" ng-change="Methods.Search()" />
+				</div>
+				<div class="row">
+					<h5 class="center-align">Discover recipes</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="card rounded grey lighten-2 z-depth-2" ng-repeat="recipe in recipes">
+		<div class="card-content">
+			<span class="card-title"><a class="amber-text text-darken-3" ng-href="#/recipe/{{recipe._id}}"><b>{{recipe.title}}</b></a></span>
+			<p>DESCRIPTION: <i>{{recipe.meta.description}}</i></p>
+			<p>INGREDIENTS: 
+				<span ng-class="{'bold-text': Methods.IsIngredientSearched(ingredient)}" ng-repeat="ingredient in recipe.ingredient_info.ingredients track by $index">{{ingredient}}
+				<span ng-if="ingredient != recipe.ingredient_info.ingredients[recipe.ingredient_info.ingredients.length-1]">,</span>
+				</span>
+			</p>
+		</div>
+	</div>
+	<div class="row" ng-if="recipes.length > 0">
+		<div class="col s2 offset-s5">
+			<button class="btn amber darken-3" ng-disabled="!showMoreBtn" ng-click="Methods.GetMore()">More</button>
+		</div>
+		<div class="col s2 offset-s3" ng-if="recipes.length > 5">
+			<a ng-click="Methods.ScrollToTop()" class="btn-floating btn amber darken-3"><i class="black-text fa fa-arrow-circle-up"></i></a>
+		</div>
+	</div>
+</form>

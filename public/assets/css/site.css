@@ -1,0 +1,49 @@
+.full-height{
+	height: 100%;
+}
+
+.bold-text{
+	font-weight: bold;
+}
+
+
+.jumbotron{
+	height: 350px;
+}
+
+/* jumbotron Animation */
+.full-height-add, .full-height-remove{
+	-webkit-transition:all linear 0.5s;
+  -moz-transition:all linear 0.5s;
+  -o-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+.full-height-add.full-height-add-active{
+	height: 99%;
+}
+.full-height-remove.full-height-remove-active {
+  height: 20%;
+}
+
+/* Color Scheme */
+.powder{
+	background-color: #BFD8D2 !important;
+}
+.peach{
+	background-color: #FEDCD2 !important;
+}
+.warm{
+	background-color: #DF744A !important;
+}
+.lemon{
+	background-color: #DCB239 !important;
+}
+.lemon-text{
+	color: #DCB239 !important;
+}
+.rounded	{
+	border-radius: 10px !important;
+}
+.rounded-slightly	{
+	border-radius: 5px !important;
+}
