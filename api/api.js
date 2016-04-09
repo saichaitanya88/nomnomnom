@@ -11,7 +11,7 @@ function API () {
 
   this.GetHomePage = function GetHomePage(req,res){
     logger.log("API.GetHomePage", appModes.DEBUG);
-    res.sendfile('public/ui/index.html');
+    res.sendfile(process.env.PWD + '/public/ui/index.html');
   };
   this.GetIngredients = function GetHomePage(req,res){
     logger.log("API.GetIngredients", appModes.DEBUG);

@@ -21,6 +21,7 @@ nom3Controllers.controller('RecipeCtrl', ['$scope', '$http', 'AppService', '$rou
 		angular.element(document).ready(function(){
 			if($routeParams.id){
 				$scope.Methods.GetRecipe();
+				ga('send', 'event', "view recipe", 'click', window.location.hash);
 			}
 		});
 	}
@@ -41,6 +42,7 @@ nom3Controllers.controller('HomeCtrl', ['$scope', '$http', 'AppService', //, "Us
 			setTimeout(function() { $("html, body").animate({ scrollTop: -$(document).height() }, "slow"); }, 100 );
 		}
 		$scope.Methods.GetMore = function(){
+			ga('send', 'event', "get more recipes", 'click', window.location.hash);
 			$scope.skip = $scope.skip + 5;
 			$scope.Methods.Search();
 		}
@@ -55,6 +57,7 @@ nom3Controllers.controller('HomeCtrl', ['$scope', '$http', 'AppService', //, "Us
 				for(var i = 0; i < ingredients.length; i++){
 					query = query + "&ingredients=" + ingredients[i]
 				}
+				ga('send', 'event', "search recipe: " + ingredients, 'click', window.location.hash);
 				var params = {query : query.substring(1), skip : $scope.skip }
 				function successFunction(response, status){
 					if (response.data.length == 0){
